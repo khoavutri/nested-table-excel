@@ -27,7 +27,7 @@ const titleList = [
         content: "BÁO CÁO DANH SÁCH KHÁCH HÀNG",
         bold: true,
         fontSize: 16,
-        width: 3 // merge cả 3 cột
+        width: 7
     }
 ];
 

@@ -41,6 +41,7 @@ export class ExcelManager {
             }
             header.push(item.header);
         });
+
         const mergerColumn: Array<any> = [];
         const subVisible: Array<string> = [];
         subHeader.forEach((_it, index) => {
@@ -53,6 +54,7 @@ export class ExcelManager {
                 subVisible.push(worksheet.getCell(titleList.length + 2, index + 1).address);
             }
         });
+
         if (titleList.length > 0) {
             titleList.forEach((item: ITitleItem, index: number) => {
                 const first: string = worksheet.getCell(index + 1, 1).address;
@@ -67,6 +69,7 @@ export class ExcelManager {
                 };
             });
         }
+
         mergeCell.forEach((item) => {
             worksheet.mergeCells(
                 `${worksheet.getCell(titleList.length + 1, item.start).address}:${worksheet.getCell(titleList.length + 1, item.stop).address
@@ -77,6 +80,7 @@ export class ExcelManager {
         mergerColumn.forEach((item) => {
             worksheet.mergeCells(`${item.start}:${item.stop}`);
         });
+
         visibleHeader.forEach((item, index) => {
             const located: any = worksheet.getCell(item);
             located.value = header[index];
